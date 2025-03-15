@@ -20,7 +20,7 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "frontend/build", "index.html"));
   });
 
-app.listen(PORT, () => {
+app.listen(5000, () => {
     connectDB();
     console.log("Server started at http://localhost:" + PORT);
 });
