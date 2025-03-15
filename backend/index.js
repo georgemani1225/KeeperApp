@@ -13,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/notes", noteRoutes)
 
+
 app.use(express.static(path.join(__dirname, "frontend/build")));
 
 app.get("*", (req, res) => {
