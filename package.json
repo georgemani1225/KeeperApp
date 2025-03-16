@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "nodemon backend/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node backend/index.js",
-    "postinstall": "cd frontend && npm install && npm run build"
+    "start": "node backend/index.js"
   },
   "type": "module",
   "keywords": [],
