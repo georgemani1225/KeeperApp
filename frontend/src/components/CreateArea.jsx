@@ -25,7 +25,7 @@ function CreateArea(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/notes", {
+      const response = await fetch("http://keeper-app-env.eba-phwzb2pt.ap-south-1.elasticbeanstalk.com/notes", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(note)

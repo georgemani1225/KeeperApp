@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     const fetchNotes = async () => {
       try {
-        const response = await fetch("http://localhost:5000/notes")
+        const response = await fetch("http://keeper-app-env.eba-phwzb2pt.ap-south-1.elasticbeanstalk.com/notes")
         const data = await response.json();
         setNotes(data.data); 
       } catch (error) {
@@ -22,7 +22,7 @@ function App() {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/notes/${id}`,{
+      const response = await fetch(`http://keeper-app-env.eba-phwzb2pt.ap-south-1.elasticbeanstalk.com/notes/${id}`,{
         method: "DELETE",
       });
       console.log(`Note - ${id} deleted`)
