@@ -12,16 +12,13 @@ phases:
     commands:
       - echo Building frontend...
       - cd ../frontend && npm run build
-      - echo Moving frontend build files to backend/public...
-      - cp -r build ../backend/public
   post_build:
     commands:
       - echo "Build completed successfully."
 
 artifacts:
   files:
-    - backend/**  # Include all backend files (routes, config, etc.)
-    - backend/public/**  # Include frontend build inside backend
-    - package.json  # Needed for npm install on EB
-    - Procfile  # Needed to explicitly start the app
+    - backend/**
+    - frontend/build/**
+    - package.json
   discard-paths: no
