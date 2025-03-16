@@ -13,7 +13,7 @@ app.use(express.json());
 app.use("/notes", noteRoutes)
 
 
-app.listen(PORT, () => {
+app.listen(8080, () => {
     connectDB();
-    console.log("Server started at http://localhost:" + PORT);
+    console.log("Server started at http://localhost:" + 8080);
 });
