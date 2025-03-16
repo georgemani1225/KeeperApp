@@ -18,7 +18,5 @@ phases:
 
 artifacts:
   files:
-    - backend/**
-    - frontend/build/**
-    - package.json
+    - '**/*'
   discard-paths: no
