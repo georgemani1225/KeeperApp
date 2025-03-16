@@ -12,6 +12,10 @@ app.use(cors());
 app.use(express.json());
 app.use("/notes", noteRoutes)
 
+app.get("/", (req, res) => {
+    res.send("Server is running!");
+});
+
 
 app.listen(PORT, () => {
     connectDB();
