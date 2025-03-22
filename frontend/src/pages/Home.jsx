@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import Header from "./Header";
-import Footer from "./Footer";
-import Note from "./Note";
-import CreateArea from "./CreateArea";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Note from "../components/Note";
+import CreateArea from "../components/CreateArea";
 
-function App() {
+function Home() {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
     const fetchNotes = async () => {
       try {
-        const response = await fetch("http://keeper-app-env.eba-phwzb2pt.ap-south-1.elasticbeanstalk.com/notes")
+        const response = await fetch("http://localhost:5000/notes")
         const data = await response.json();
         setNotes(data.data); 
       } catch (error) {
@@ -22,7 +22,7 @@ function App() {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://keeper-app-env.eba-phwzb2pt.ap-south-1.elasticbeanstalk.com/notes/${id}`,{
+      const response = await fetch(`http://localhost:5000/notes/${id}`,{
         method: "DELETE",
       });
       console.log(`Note - ${id} deleted`)
@@ -39,25 +39,27 @@ function App() {
   }
 
   return (
-    <div>
-      <Header />
-      <CreateArea onAdd={addNote} />
-      
-      {notes.map((noteItem, index) => {
-        return (
-          <Note
-            key={noteItem._id}
-            id={noteItem._id}
-            title={noteItem.title}
-            content={noteItem.content}
-            onDelete={handleDelete}
-          />
-        );
-      })}
-      <Footer />
 
-    </div>
+    <div>
+    <Header />
+    <CreateArea onAdd={addNote} />
+    
+    {notes.map((noteItem, index) => {
+      return (
+        <Note
+          key={noteItem._id}
+          id={noteItem._id}
+          title={noteItem.title}
+          content={noteItem.content}
+          onDelete={handleDelete}
+        />
+      );
+    })}
+    <Footer />
+
+  </div>
+    
   );
 }
 
-export default App;
+export default Home;

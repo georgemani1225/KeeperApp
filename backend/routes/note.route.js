@@ -1,9 +1,10 @@
 import express from 'express';
 import { createNote, deleteNote, getNotes, updateNote } from '../controllers/note.controller.js';
+import { ensureAuthenticated } from '../middlewares/noteAuth.js';
 
 const router = express.Router();
 
-router.get("/", getNotes)
+router.get("/", ensureAuthenticated, getNotes)
 router.post("/", createNote);
 router.put("/:id", updateNote);
 router.delete("/:id", deleteNote);
