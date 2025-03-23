@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AddIcon } from "@chakra-ui/icons";
 import { IconButton, ScaleFade } from "@chakra-ui/react";
+import { useAuth } from "../context/auth";
 
 function CreateArea(props) {
   const [isExpanded, setExpanded] = useState(false);
@@ -8,6 +9,8 @@ function CreateArea(props) {
     title: "",
     content: "",
   });
+
+  const [auth, setAuth] = useAuth();
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -25,7 +28,10 @@ function CreateArea(props) {
     try {
       await fetch("http://localhost:5000/notes", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: auth?.token
+        },
         body: JSON.stringify(note),
       });
       props.onAdd(note);

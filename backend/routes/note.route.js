@@ -5,7 +5,7 @@ import { ensureAuthenticated } from '../middlewares/noteAuth.js';
 const router = express.Router();
 
 router.get("/", ensureAuthenticated, getNotes)
-router.post("/", createNote);
+router.post("/",ensureAuthenticated, createNote);
 router.put("/:id", updateNote);
 router.delete("/:id", deleteNote);
 
