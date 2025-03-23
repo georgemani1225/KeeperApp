@@ -1,11 +1,9 @@
 import React from "react";
-import HighlightIcon from '@mui/icons-material/Highlight';
 
 function Header() {
   return (
-    <header>
-      <h1>
-        <HighlightIcon />
+    <header className="bg-[#f5ba13] mx-auto py-3 px-4 shadow-md">
+      <h1 className="text-white text-2xl font-light font-[McLaren,cursive] flex items-center">
         Keeper
       </h1>
     </header>

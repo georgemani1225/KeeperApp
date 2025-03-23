@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import AddIcon from '@mui/icons-material/Add';
-import Fab from '@mui/material/Fab';
-import Zoom from '@mui/material/Zoom';
+import { AddIcon } from "@chakra-ui/icons";
+import { IconButton, ScaleFade } from "@chakra-ui/react";
 
 function CreateArea(props) {
   const [isExpanded, setExpanded] = useState(false);
-
   const [note, setNote] = useState({
     title: "",
     content: "",
@@ -25,10 +23,10 @@ function CreateArea(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/notes", {
+      await fetch("http://localhost:5000/notes", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(note)
+        body: JSON.stringify(note),
       });
       props.onAdd(note);
       setNote({
@@ -38,8 +36,7 @@ function CreateArea(props) {
     } catch (error) {
       console.log("Error: ", error.message);
     }
-
-  }
+  };
 
   function expand() {
     setExpanded(true);
@@ -47,7 +44,9 @@ function CreateArea(props) {
 
   return (
     <div>
-      <form className="create-note">
+      <form
+        className="relative w-[480px] bg-white mx-auto my-8 p-4 rounded-lg shadow-md"
+      >
         {isExpanded && (
           <input
             name="title"
@@ -55,6 +54,7 @@ function CreateArea(props) {
             value={note.title}
             placeholder="Title"
             maxLength="20"
+            className="w-full border-none p-1 text-lg outline-none resize-none"
           />
         )}
 
@@ -64,14 +64,18 @@ function CreateArea(props) {
           onChange={handleChange}
           value={note.content}
           placeholder="Take a note..."
-          rows={isExpanded ? 3 : 1}
+          rows={isExpanded ? 2 : 1}
           maxLength="100"
+          className="w-full border-none p-1 text-lg outline-none resize-none"
         />
-        <Zoom in={isExpanded}>
-          <Fab onClick={handleSubmit}>
-            <AddIcon />
-          </Fab>
-        </Zoom>
+        <ScaleFade in={isExpanded} initialScale={0.9}>
+          <IconButton
+            onClick={handleSubmit}
+            aria-label="Add Note"
+            icon={<AddIcon />}
+            className="relative float-right bottom-2 bg-[#f5ba13] text-white w-9 h-9 shadow-md hover:bg-yellow-500"
+          />
+        </ScaleFade>
       </form>
     </div>
   );
