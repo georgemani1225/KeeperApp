@@ -35,6 +35,7 @@ function NoteModal(props) {
                     type="text"
                     name="updatedTitle"
                     value={note.updatedTitle}
+                    maxLength="20"
                     onChange={handleChange}
                     placeholder="Title"
                 />
@@ -43,6 +44,7 @@ function NoteModal(props) {
                     value={note.updatedContent}
                     name="updatedContent"
                     onChange={handleChange}
+                    maxLength="100"
                     placeholder="Take a note..."
                 />
                 <div className="flex justify-end">

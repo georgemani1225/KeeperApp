@@ -33,8 +33,6 @@ function Home() {
       }
   }, [auth]);
 
-
-//----update
   const handleUpdate = async (id, updatedTitle, updatedContent) => {
     try {
       const response = await fetch(`http://localhost:5000/notes/${id}`, {
