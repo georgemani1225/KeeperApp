@@ -67,7 +67,7 @@ function Login() {
     }
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-white">
+        <div className="flex items-center justify-center min-h-screen bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
             <div className="bg-white p-8 rounded-xl shadow-lg w-96">
                 <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
                 <form onSubmit={handleSubmit}>
@@ -78,7 +78,7 @@ function Login() {
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full p-2 mt-1 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                            className="w-full p-2 mt-1 border rounded-lg outline-none"
                             placeholder="Enter your email"
                             required
                         />
@@ -90,19 +90,19 @@ function Login() {
                             name="password"
                             value={formData.password}
                             onChange={handleChange}
-                            className="w-full p-2 mt-1 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                            className="w-full p-2 mt-1 border rounded-lg outline-none"
                             placeholder="Enter your password"
                             required
                         />
                     </div>
                     <button
                         type="submit"
-                        className="w-full bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition-all">
+                        className="w-full bg-[#f5ba13] text-black p-2 rounded-lg hover:bg-[#f5ba13] transition-all">
                         Login
                     </button>
                 </form>
                 <p className="mt-4 text-center text-gray-600">
-                    Don't have an account? <Link to="/signup" className="text-blue-500 hover:underline">Register here</Link>
+                    Don't have an account? <Link to="/signup" className="text-[#f5ba13] hover:underline">Register here</Link>
                 </p>
             </div>
             <Toaster />

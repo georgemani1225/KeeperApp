@@ -70,7 +70,7 @@ function Signup() {
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
-                            className="w-full p-2 mt-1 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                            className="w-full p-2 mt-1 border rounded-lg outline-none"
                             placeholder="Enter your name"
                             required
                         />
@@ -82,7 +82,7 @@ function Signup() {
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full p-2 mt-1 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                            className="w-full p-2 mt-1 border rounded-lg outline-none"
                             placeholder="Enter your email"
                             required
                         />
@@ -94,21 +94,21 @@ function Signup() {
                             name="password"
                             value={formData.password}
                             onChange={handleChange}
-                            className="w-full p-2 mt-1 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                            className="w-full p-2 mt-1 border rounded-lg outline-none"
                             placeholder="Enter your password"
                             required
                         />
                     </div>
                     <button
                         type="submit"
-                        className="w-full bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition-all"
+                        className="w-full bg-[#f5ba13] text-black p-2 rounded-lg hover:bg-[#f5ba13] transition-all"
                     >
                         Sign Up
                     </button>
                 </form>
                 <p className="mt-4 text-center text-gray-600">
                     Already have an account?{" "}
-                    <Link to="/login" className="text-blue-500 hover:underline">
+                    <Link to="/login" className="text-[#f5ba13] hover:underline">
                         Log in
                     </Link>
                 </p>

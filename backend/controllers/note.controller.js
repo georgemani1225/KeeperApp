@@ -4,7 +4,7 @@ import Note from "../models/note.model.js";
 export const getNotes = async (req, res) => {
 
     try {
-        const notes = await Note.find({ user: req.user._id });
+        const notes = await Note.find({ user: req.user.id });
         res.status(200).json({ success: true, data: notes });
     } catch (error) {
         console.log("Error in fetching notes:", error.message);
@@ -19,7 +19,7 @@ export const createNote = async (req, res) => {
         return res.status(400).json({ success: false, message: "Please enter the title" })
     }
 
-    const newNote = new Note({...note, user: req.user._id});
+    const newNote = new Note({...note, user: req.user.id});
 
     try {
         await newNote.save();
